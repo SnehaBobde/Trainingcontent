@@ -1,0 +1,437 @@
+1.The movies titled "Gladiator".
+   db.movies.find({title: "Gladiator"})
+
+{
+  _id: 'movie:9',
+  title: 'Gladiator',
+  year: 2000,
+  genre: 'drama',
+  summary: "Le général romain Maximus est le plus fidèle                    soutien de l'empereur Marc Aurèle, qu'il a                    conduit de victoire en victoire avec une                    bravoure et un dévouement exemplaires.                    Jaloux du prestige de Maximus, et plus                    encore de l'amour que lui voue l'empereur,                    le fils de Marc-Aurèle, Commode, s'arroge                    brutalement le pouvoir, puis ordonne                    l'arrestation du général et son exécution.                    Maximus échappe à ses assassins mais ne peut                    empêcher le massacre de sa famille. Capturé                    par un marchand d'esclaves, il devient                    gladiateur et prépare sa vengeance.",
+  country: 'USA',
+director: {
+    _id: 'artist:4',
+    last_name: 'Scott',
+    first_name: 'Ridley',
+    birth_date: '1937'
+  },
+  actors: [
+    {
+      _id: 'artist:23',
+      first_name: 'Russell',
+      last_name: 'Crowe',
+      birth_date: '1964',
+      role: 'Maximus'
+    },
+    {
+ _id: 'artist:147',
+      first_name: 'Adam',
+      last_name: 'Baldwin',
+      birth_date: '1962',
+      role: 'Commode'
+    },
+    {
+      _id: 'artist:148',
+      first_name: 'Ryan',
+      last_name: 'ONeal',
+      birth_date: '1941',
+      role: 'Lucilla'
+    },
+    {
+	{
+      _id: 'artist:149',
+      first_name: 'Marisa',
+      last_name: 'Berenson',
+      birth_date: '1946',
+      role: 'Marc Aurele'
+    }
+  ]
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2.The distinct genre values of movies.
+db.movies.distinct("genre")
+
+[
+  'Action',      'Comédie',
+  'Fantastique', 'Guerre',
+  'Horreur',     'Science-fiction',
+  'Suspense',    'Thriller',
+  'Western',     'crime',
+  'drama',       'romance'
+]
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3.The movies of "crime" or "drama" genre.
+db.movies.find({ genre: { $in: ["crime", "drama"] } })
+
+{
+  _id: 'movie:3',
+  title: 'Titanic',
+  year: 1997,
+  genre: 'drama',
+  summary: "Conduite par Brock Lovett, une expédition américaine fouillant l'épave du Titanic remonte à la surface le croquis d'une femme nue. Alertée par les médias la dame en question, Rose DeWitt Bukater, aujourd'hui centenaire, rejoint les lieux du naufrage, d'où elle entreprend de conter le récit de son fascinant, étrange et tragique voyage... ",
+  country: 'USA',
+  director: {
+    _id: 'artist:6',
+    last_name: 'Cameron',
+    first_name: 'James',
+    birth_date: '1954'
+  },
+  actors: [
+    {
+      _id: 'artist:109',
+      first_name: 'Kate',
+      last_name: 'Winslet',
+      birth_date: '1975',
+      role: 'Rose DeWitt Bukater'
+    },
+    {
+      _id: 'artist:110',
+      first_name: 'Leonardo',
+      last_name: 'DiCaprio',
+      birth_date: '1974',
+      role: 'Jack Dawson'
+    }
+  ]
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4.The list of movies directed by "Hitchcock",display only title and year andsort them by year.
+
+db.movies.find(
+  { "director.last_name": "Hitchcock" },
+  { "title": 1, "year": 1, "_id": 0 }
+).sort({ "year": 1 })
+
+{
+  title: 'Fenêtre sur cour',
+  year: 1954
+}
+{
+  title: 'Vertigo',
+  year: 1958
+}
+{
+  title: 'La mort aux trousses',
+  year: 1959
+}
+{
+  title: 'Psychose',
+  year: 1960
+}
+{
+  title: 'Les oiseaux',
+  year: 1963
+}
+{
+  title: 'Pas de printemps pour Marnie',
+  year: 1964
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5.The list of movies where "Cotillard" played.
+
+db.movies.find({ "actors.last_name": "Cotillard" })
+
+{
+  _id: 'movie:86',
+  title: 'Inception',
+  year: 2010,
+  genre: 'Science-fiction',
+  summary: 'Dom Cobb est un voleur expérimenté – le meilleur qui soit dans l’art périlleux de l’extraction : sa spécialité consiste à s’approprier les secrets les plus précieux d’un individu, enfouis au plus profond de son subconscient, pendant qu’il rêve et que son esprit est particulièrement vulnérable. Très recherché pour ses talents dans l’univers trouble de l’espionnage industriel, Cobb est aussi devenu un fugitif traqué dans le monde entier qui a perdu tout ce qui lui est cher. Mais une ultime mission pourrait lui permettre de retrouver sa vie d’avant – à condition qu’il puisse accomplir l’impossible : l’inception. Au lieu de subtiliser un rêve, Cobb et son équipe doivent faire l’inverse : implanter une idée dans l’esprit d’un individu. S’ils y parviennent, il pourrait s’agir du crime parfait. Et pourtant, aussi méthodiques et doués soient-ils, rien n’aurait pu préparer Cobb et ses partenaires à un ennemi redoutable qui semble avoir systématiquement un coup d’avance sur eux. Un ennemi dont seul Cobb aurait pu soupçonner l’existence. ',
+  country: 'USA',
+  director: {
+    _id: 'artist:266',
+    last_name: 'Nolan',
+    first_name: 'Christopher',
+    birth_date: '1970'
+  },
+  actors: [
+    {
+      _id: 'artist:110',
+      first_name: 'Leonardo',
+      last_name: 'DiCaprio',
+      birth_date: '1974',
+      role: 'Cobb'
+    },
+    {
+      _id: 'artist:269',
+      first_name: 'Michael',
+      last_name: 'Caine',
+      birth_date: '1933',
+      role: 'Miles'
+    },
+    {
+      _id: 'artist:270',
+      first_name: 'Elen',
+      last_name: 'Page',
+      birth_date: null,
+      role: 'Ariadne'
+    },
+    {
+      _id: 'artist:271',
+      first_name: 'Marion',
+      last_name: 'Cotillard',
+      birth_date: '1975',
+      role: 'Mal'
+    }
+  ]
+}
+{
+  _id: 'movie:90',
+  title: 'The Dark Knight Rises',
+  year: 2012,
+  genre: 'Science-fiction',
+  summary: "Il y a huit ans, Batman a disparu dans la nuit : lui qui était un héros est alors devenu un fugitif. S'accusant de la mort du procureur-adjoint Harvey Dent, le Chevalier Noir a tout sacrifié au last_name de ce que le commissaire Gordon et lui-même considéraient être une noble cause. Et leurs actions conjointes se sont avérées efficaces pour un temps puisque la criminalité a été éradiquée à Gotham City grâce à l'arsenal de lois répressif initié par Dent.Mais c'est un chat – aux intentions obscures – aussi rusé que voleur qui va tout bouleverser. À moins que ce ne soit l'arrivée à Gotham de Bane, terroriste masqué, qui compte bien arracher Bruce à l'exil qu'il s'est imposé. Pourtant, même si ce dernier est prêt à endosser de nouveau la cape et le casque du Chevalier Noir, Batman n'est peut-être plus de taille à affronter Bane…",
+  country: 'USA',
+  director: {
+    _id: 'artist:266',
+    last_name: 'Nolan',
+    first_name: 'Christopher',
+    birth_date: '1970'
+  },
+  actors: [
+    {
+      _id: 'artist:22',
+      first_name: 'Morgan',
+      last_name: 'Freeman',
+      birth_date: '1937',
+      role: 'Lucius Fox'
+    },
+    {
+      _id: 'artist:116',
+      first_name: 'Gary',
+      last_name: 'Oldman',
+      birth_date: '1958',
+      role: 'Commissioner Gordon'
+    },
+    {
+      _id: 'artist:268',
+      first_name: 'Anne',
+      last_name: 'Hathaway',
+      birth_date: '1982',
+      role: 'Selina'
+    },
+    {
+      _id: 'artist:269',
+      first_name: 'Michael',
+      last_name: 'Caine',
+      birth_date: '1933',
+      role: 'Alfred'
+    },
+    {
+      _id: 'artist:271',
+      first_name: 'Marion',
+      last_name: 'Cotillard',
+      birth_date: '1975',
+      role: 'Miranda'
+    },
+    {
+      _id: 'artist:274',
+      first_name: 'Christian',
+      last_name: 'Bale',
+      birth_date: '1974',
+      role: 'Bruce Wayne / Batman'
+    }
+  ]
+}
+
+--------------------------------------------------------------------------------------------------------
+
+6.The movies released between 1967 and 1995.
+
+db.movies.find({ year: { $gte: 1967, $lte: 1995 } })
+
+{
+  _id: 'movie:2',
+  title: 'Alien',
+  year: 1979,
+  genre: 'Science-fiction',
+  summary: `Près d'un vaisseau spatial échoué sur une lointaine planète, des Terriens en mission découvrent de bien étranges "oeufs". Ils en ramènent un à bord, ignorant qu'ils viennent d'introduire parmi eux un huitième passager particulièrement féroce et meurtrier. `,
+  country: 'USA',
+  director: {
+    _id: 'artist:4',
+    last_name: 'Scott',
+    first_name: 'Ridley',
+    birth_date: '1937'
+  },
+  actors: [
+    {
+      _id: 'artist:5',
+      first_name: 'Sigourney',
+      last_name: 'Weaver',
+      birth_date: '1949',
+      role: 'Ripley'
+    }
+  ]
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+7. The list of the movies released between 1967 and 1995, by displaying only title, year, director’s last name sorted by year.
+
+db.movies.find({ year: { $gte: 1967, $lte: 1995 } }, { title: 1, year: 1, "director.last_name": 1, _id: 0 }).sort({ year: 1 })
+
+{
+  title: 'Le parrain',
+  year: 1972,
+  director: {
+    last_name: 'Coppola'
+  }
+{
+  title: 'Le grand bleu',
+  year: 1988,
+  director: {
+    last_name: 'Besson'
+  }
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+8. The number of movies by country.
+
+db.movies.aggregate([
+  { $group: { _id: "$country", count: { $sum: 1 } } }
+])
+
+{
+  _id: 'DE',
+  count: 1
+}
+{
+  _id: 'FR',
+  count: 17
+}
+{
+  _id: 'USA',
+  count: 67
+}
+{
+  _id: 'JP',
+  count: 1
+}
+{
+  _id: 'IT',
+  count: 2
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+9. The number of movies by country and actor.
+
+db.movies.aggregate([
+  { $unwind: "$actors" },
+  { $group: { _id: { country: "$country", actor: "$actors" }, count: { $sum: 1 } } }
+])
+
+{
+  _id: {
+    country: 'USA',
+    actor: {
+      _id: 'artist:271',
+      first_name: 'Marion',
+      last_name: 'Cotillard',
+      birth_date: '1975',
+      role: 'Miranda'
+    }
+  },
+  count: 1
+}
+{
+  _id: {
+    country: 'USA',
+    actor: {
+      _id: 'artist:22',
+      first_name: 'Morgan',
+      last_name: 'Freeman',
+      birth_date: '1937',
+      role: 'Lucius Fox '
+    }
+  },
+count: 1
+}
+{
+  _id: {
+    country: 'USA',
+    actor: {
+      _id: 'artist:12',
+      first_name: 'Nicolas',
+      last_name: 'Cage',
+      birth_date: '1964',
+      role: 'Castor Troy/Sean Archer'
+    }
+  },
+  count: 1
+}
+{
+  _id: {
+    country: 'USA',
+    actor: {
+      _id: 'artist:131',
+      first_name: 'Matthieu',
+      last_name: 'Kassowitz',
+      birth_date: '1967',
+      role: 'Dennis Gilley'
+    }
+  },
+  count: 1
+}
+{
+  _id: {
+    country: 'USA',
+    actor: {
+      _id: 'artist:256',
+      first_name: 'Christoph',
+      last_name: 'Waltz',
+      birth_date: '1956',
+      role: 'Col. Hans Landa'
+    }
+  },
+  count: 1
+}
+{
+  _id: {
+    country: 'USA',
+    actor: {
+      _id: 'artist:110',
+      first_name: 'Leonardo',
+      last_name: 'DiCaprio',
+      birth_date: '1974',
+      role: 'Calvin Candie'
+    }
+  },
+  count: 1
+}
+{
+  _id: {
+    country: 'USA',
+    actor: {
+      _id: 'artist:109',
+      first_name: 'Kate',
+      last_name: 'Winslet',
+      birth_date: '1975',
+      role: 'Rose DeWitt Bukater'
+    }
+  },
+  count: 1
+}
+{
+  _id: {
+    country: 'USA',
+    actor: {
+      _id: 'artist:167',
+      first_name: 'Robert',
+      last_name: 'De Niro',
+      birth_date: '1943',
+      role: 'Travis Bickle '
+    }
+  },
+  count: 1
+}
+
+
+
