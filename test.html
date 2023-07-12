@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS styles */
+    .navbar {
+      background-color: rgb(209, 236, 109);
+      color: rgba(255, 255, 255, 0.667);
+      padding: 10px 20px;
+    }
+    .navbar-brand {
+      font-size: 24px;
+      color: #fff;
+    }
+    .navbar-nav .nav-link {
+      color: #fff;
+      text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+    }
+    .container{
+        color: rgb(6, 6, 6);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <a class="navbar-brand" href="#">
+        <img src="harbinger_logo.png" width="150" height="40">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Blog</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <section id="courses" class="bg-light">
+    <div class="container">
+      <h2 class="text-center">Courses</h2>
+      <div class="row">
+        <div class="col-lg-4 col-md-6">
+          <div class="card mb-4">
+            <img class="card-img-top" src="java-logo.png" width="100" height="200" alt="Course 1">
+            <div class="card-body">
+              <h5 class="card-title">Java Course</h5>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#javaModal">Demo</button>
+              <a href="java.html" class="btn btn-success">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card mb-4">
+            <img class="card-img-top" src="python-logo.png" width="100" height="200" alt="Course 2">
+            <div class="card-body">
+              <h5 class="card-title">Python Course</h5>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pythonModal">Demo</button>
+              <a href="python.html" class="btn btn-success">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="card mb-4">
+            <img class="card-img-top" src="cpp.png" height="200" alt="Course 3">
+            <div class="card-body">
+              <h5 class="card-title">C++ Course</h5>
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cppModal">Demo</button>
+              <a href="cpp.html" class="btn btn-success">Get Started</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Java Modal -->
+  <div class="modal fade" id="javaModal" tabindex="-1" role="dialog" aria-labelledby="javaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="javaModalLabel">Java Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Description of the Java</p>
+          <p>Java is a multi-platform, object-oriented, and network-centric language that can be used as a platform in itself. It is a fast, secure, reliable programming language for coding everything from mobile apps and enterprise software to big data applications and server-side technologies.</p>
+          <p><b>Trainer: Mr. Sharath Kumar</b></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="https://youtu.be/UmnCZ7-9yDY" class="btn btn-primary" target="_blank">Watch Video</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Python Modal -->
+  <div class="modal fade" id="pythonModal" tabindex="-1" role="dialog" aria-labelledby="pythonModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="pythonModalLabel">Python Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Description of the Python</p>
+          <p>Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together.</p>
+          <p><b>Trainer:- Mr. Sharath Kumar</b></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="https://youtu.be/QXeEoD0pB3E" class="btn btn-primary" target="_blank">Watch Video</a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- cpp Modal -->
+  <div class="modal fade" id="cppModal" tabindex="-1" role="dialog" aria-labelledby="cppModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cppModalLabel">cpp Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Description of C++</p>
+          <p>cpp is a general-purpose programming language that was developed as an enhancement of the C language to include object-oriented paradigm. It is an imperative and a compiled language.</p>
+          <p><b>Trainer: Mr. Sharath Kumar</b></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="https://youtu.be/QXeEoD0pB3E" class="btn btn-primary" target="_blank">Watch Video</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

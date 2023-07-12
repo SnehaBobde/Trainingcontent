@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Python Course</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS styles */
+    body {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Course Topics</h2>
+        <ul class="list-group">
+          <li class="list-group-item topic" data-topic="introduction">Introduction to Python</li>
+          <li class="list-group-item topic" data-topic="variables">Variables and Data Types</li>
+          <li class="list-group-item topic" data-topic="control">Control Statements</li>
+          <li class="list-group-item topic" data-topic="oop">Comparison between Java and Python</li>
+          <li class="list-group-item topic" data-topic="arrays">Arrays and Collections</li>
+          <li class="list-group-item topic" data-topic="exception">Exception Handling</li>
+          <li class="list-group-item topic" data-topic="file">File Handling</li>
+          <li class="list-group-item topic" data-topic="db">Database Connectivity</li>
+          <li class="list-group-item topic" data-topic="gui">GUI Development</li>
+          <li class="list-group-item topic" data-topic="web">Web Application Development with Java Servlets</li>
+        </ul>
+      </div>
+      <div class="col-md-8">
+        <div id="content" class="content">
+          <h1>Welcome to the Python Course</h1>
+          <p>Please select a topic from the left to view its content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(".topic").click(function() {
+        var topic = $(this).data("topic");
+        loadContent(topic);
+      });
+    });
+    function loadContent(topic) {
+      // Define the content for each topic
+      var contentMap = {
+        introduction: {
+          title: "Introduction to Java",
+          text: " Java is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is intended to let application developers write once, and run anywhere (WORA), meaning that compiled Java code can run on all platforms that support Java without the need for recompilation. Java was first released in 1995 and is widely used for developing applications for desktop, web, and mobile devices. Java is known for its simplicity, robustness, and security features, making it a popular choice for enterprise-level applications. ",
+        },
+        variables: {
+          title: "Variables and Data Types",
+          text: "In Java, variables are used to store data that can be manipulated and accessed...",
+        },
+        control: {
+          title: "Control Statements",
+          text: "Control statements are used to control the flow of execution in a Java program...",
+        },
+        oop: {
+          title: "Object-Oriented Programming",
+          text: "Object-oriented programming (OOP) is a programming paradigm that...",
+        },
+        arrays: {
+          title: "Arrays and Collections",
+          text: "Arrays and collections are used to store multiple values in Java...",
+        },
+        exception: {
+          title: "Exception Handling",
+          text: "Exception handling is a mechanism used in Java to handle and manage...",
+        },
+        file: {
+          title: "File Handling",
+          text: "File handling in Java allows you to perform various operations...",
+        },
+        db: {
+          title: "Database Connectivity",
+          text: "Database connectivity in Java enables you to interact with databases...",
+        },
+        gui: {
+          title: "GUI Development",
+          text: "Graphical User Interface (GUI) development in Java involves...",
+        },
+        web: {
+          title: "Web Application Development with Java Servlets",
+          text: "Java Servlets are Java classes that dynamically process and respond...",
+        },
+      };
+      // Update the content on the right side
+      var title = contentMap[topic].title;
+      var text = contentMap[topic].text;
+      $("#content").html("<h1>" + title + "</h1><p>" + text + "</p>");
+    }
+  </script>
+</body>
+</html>
